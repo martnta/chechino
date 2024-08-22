@@ -7,7 +7,7 @@ const beltColors = ['white', 'orange', 'blue', 'yellow', 'red','green', 'brown',
 export default function BeltCarousel() {
   return (
     <motion.section 
-      className="bg-white py-10 overflow-hidden"
+      className="bg-gray-900 py-10 overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -30,7 +30,7 @@ export default function BeltCarousel() {
           {[...beltColors, ...beltColors].map((color, index) => (
             <motion.div
               key={`${color}-${index}`}
-              className={`w-20 h-8 rounded-full flex-shrink-0`}
+              className={`w-20 h-8 border-2 border-gray-100  rounded-full flex-shrink-0`}
               style={{ backgroundColor: color }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
