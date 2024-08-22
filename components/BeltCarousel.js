@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-const beltColors = ['white', 'orange', 'blue', 'yellow', 'red', 'brown', 'black'];
+const beltColors = ['white', 'orange', 'blue', 'yellow', 'red','green', 'brown', 'black'];
 
 export default function BeltCarousel() {
   return (

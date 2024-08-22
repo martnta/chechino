@@ -8,7 +8,7 @@ export default function About() {
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/2 px-4 mb-8">
             <div className="relative h-[400px]">
-              <Image src="/dojo-image.jpg" alt="Chechino Dojo" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
+              <Image src="/chec-farai.jpg" alt="Chechino Dojo" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
             </div>
           </div>
           <div className="w-full md:w-1/2 px-4 mb-8">

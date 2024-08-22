@@ -14,7 +14,7 @@ export default function Home() {
             <Button variant="default">Join Us</Button>
           </div>
           <div className="w-1/3 relative h-[400px]">
-            <Image src="/karate-instructor.jpg" alt="Karate Instructor" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
+            <Image src="/male-k-back.png" alt="Karate Instructor" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
           </div>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default function Home() {
               <Button variant="default">Enroll Now</Button>
             </div>
             <div className="md:w-1/2 relative h-[300px]">
-              <Image src="/karate-students.jpg" alt="Karate Students" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
+              <Image src="/girl-karate.jpeg" alt="Karate Students" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
             </div>
           </div>
         </div>
