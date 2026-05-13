@@ -2,37 +2,50 @@
 import Link from 'next/link';
 
 export default function Footer() {
-  const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/classes', label: 'Classes' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/about', label: 'About' },
-  ];
-
   return (
-    <footer className="bg-gray-800 text-white py-10">
-      <div className="container mx-auto">
-        <div className="flex flex-wrap justify-between">
-          <div className="w-full md:w-1/3 mb-8 md:mb-0">
-            <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-            <ul>
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="hover:text-gray-300">
+    <footer className="bg-neutral-950 text-white">
+      <div className="container mx-auto px-6">
+        {/* Main footer */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 border-t border-white/10">
+          <div>
+            <p className="font-bold text-lg mb-1">Chechino</p>
+            <p className="text-neutral-500 text-sm">Kyokushin Karate & Fitness Academy</p>
+            <p className="text-neutral-600 text-xs mt-4 text-serif italic">&ldquo;Discipline is a Must — Let love lead.&rdquo;</p>
+          </div>
+
+          <div className="flex gap-16">
+            <div>
+              <p className="text-xs uppercase tracking-[0.15em] text-neutral-500 font-medium mb-4">Navigate</p>
+              <div className="flex flex-col gap-2">
+                {[
+                  { href: '/', label: 'Home' },
+                  { href: '/classes', label: 'Programs' },
+                  { href: '/grading', label: 'Belt Journey' },
+                  { href: '/about', label: 'About' },
+                  { href: '/contact', label: 'Contact' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className="text-neutral-400 hover:text-white transition-colors text-sm">
                     {item.label}
                   </Link>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="w-full md:w-1/3">
-            <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-            <p>Email: info@chechinodojo.com</p>
-            <p>Phone: (123) 456-7890</p>
+
+          <div>
+            <p className="text-xs uppercase tracking-[0.15em] text-neutral-500 font-medium mb-4">Contact</p>
+            <div className="space-y-2 text-sm text-neutral-400">
+              <p>Bingu National Stadium, North Wing</p>
+              <p>Lilongwe, Malawi</p>
+              <p className="pt-2">+265 990 077 426</p>
+              <a href="mailto:chechinoadojo@gmail.com" className="hover:text-white transition-colors block">chechinoadojo@gmail.com</a>
+            </div>
           </div>
         </div>
-        <div className="mt-8 text-center">
-          <p>&copy; 2024 Chechino Dojo. All rights reserved.</p>
+
+        {/* Bottom bar */}
+        <div className="py-6 border-t border-white/5 text-center">
+          <p className="text-neutral-600 text-xs">&copy; {new Date().getFullYear()} Chechino Kyokushin Karate & Fitness Academy</p>
         </div>
       </div>
     </footer>

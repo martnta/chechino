@@ -4,170 +4,152 @@ import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import BeltCarousel from '@/components/BeltCarousel';
 
-
-// Arrays for image sources
-const featuredClassImages = [
-  '/boy-karate.jpeg',
-  '/girl-karate.jpeg',
-  '/male-k-back.png'
-];
-
-const galleryImages = [
-  '/boy-karate.jpeg',
-  '/girl-karate.jpeg',
-  '/kids.jpg',
-  '/male-k-back.jpg',
-  '/karate-1.jpg',
-  '/chec-farai.jpg',
-  '/karate-2.jpg',
-  '/outdoor-8.jpg'
-];
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gray-200 py-20">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="max-w-lg">
-            <h1 className="text-4xl font-bold mb-4">Welcome to Chechino Dojo</h1>
-            <p className="text-xl mb-6">Discover the art of karate and unleash your potential</p>
-            <Button variant="default">Start Your Journey</Button>
-          </div>
-          <div className="w-1/2 relative h-[400px]">
-            <Image src="/chec-farai.jpg" alt="Karate Hero" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
+      {/* Hero — full bleed, minimal */}
+      <section className="relative h-screen min-h-[600px] flex items-end bg-neutral-950">
+        <Image src="/chec-farai.jpg" alt="Chechino Dojo Training" fill style={{ objectFit: "cover" }} className="opacity-40" priority />
+        <div className="relative z-10 container mx-auto px-6 pb-20 md:pb-28">
+          <span className="highlight-line" />
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] max-w-3xl mb-6">
+            Chechino Kyokushin Karate Academy
+          </h1>
+          <p className="text-serif text-white/60 text-lg md:text-xl max-w-lg mb-8 italic">
+            &ldquo;Discipline is a Must — Let love lead.&rdquo;
+          </p>
+          <div className="flex gap-4">
+            <Link href="/classes">
+              <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-sm font-medium rounded-none">View Programs</Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" className="border-white/30 text-black hover:bg-white/10 px-8 py-3 text-sm font-medium rounded-none">Get in Touch</Button>
+            </Link>
           </div>
         </div>
       </section>
 
       <BeltCarousel />
 
-      {/* Featured Classes */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">Featured Classes</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {['Beginner Karate', 'Advanced Kata', 'Sparring Techniques'].map((className, index) => (
-              <div key={className} className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-                <div className="relative h-48">
-                  <Image src={featuredClassImages[index]} alt={className} fill style={{objectFit: "cover"}} />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{className}</h3>
-                  <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <Link href="/classes" className="text-blue-600 hover:underline">Learn More</Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Karate for all ages */}
-      <section className="bg-gray-100 py-20">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 md:pr-10 mb-6 md:mb-0">
-              <h2 className="text-3xl font-bold mb-4">Karate for All Ages</h2>
-              <p className="mb-6">At Chechino Dojo, we believe that karate is for everyone. Our classes cater to all age groups, from children developing discipline and confidence to adults seeking fitness and self-defense skills.</p>
-              <Button variant="default">Explore Classes</Button>
+      {/* About strip */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <span className="section-label">Who We Are</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 leading-tight">A Malawian academy preserving the true meaning of Kyokushin</h2>
+              <div className="w-12 h-[2px] bg-red-600 mb-8" />
             </div>
-            <div className="md:w-1/2 relative h-[300px]">
-              <Image src="/kids.jpg" alt="Karate for All Ages" fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
-            </div>
-          </div>
-        </div>
-      </section>
-           {/* Activities Section */}
-           <section className="bg-gray-100 py-20">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">Dojo Activities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Kata Presentations */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="relative h-64">
-                <Image src="/boy-karate.jpeg" alt="Kata Presentation" fill style={{objectFit: "cover"}} />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2">Kata Presentations</h3>
-                <p className="text-gray-600 mb-4">Showcase your skills and precision in our regular kata presentation events. Perfect your form and demonstrate your understanding of karate techniques.</p>
-                <Button variant="outline">Learn More</Button>
-              </div>
-            </div>
-
-            {/* Certifications */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="relative h-64">
-                <Image src="/karate-1.jpg" alt="Karate Certification" fill style={{objectFit: "cover"}} />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2">Certifications</h3>
-                <p className="text-gray-600 mb-4">Earn official certifications as you progress through your karate journey. Our structured program ensures recognition for your hard work and dedication.</p>
-                <Button variant="outline">View Certifications</Button>
-              </div>
+            <div className="space-y-5 text-neutral-600 leading-relaxed">
+              <p>We provide Kyokushin karate training, physical and mental fitness, aerobics and athletics, self-defense, combat training, gym and team building services.</p>
+              <p>Our instructors are university graduates professionally trained by local and international institutions, holding internationally approved karate and fitness instructor certificates.</p>
+              <p>We are affiliated with International Budokai Union — IBU KYODO, members of the Malawi Full Contact Karate Federation, and guided by Malawi Council of Sports through Malawi Karate Union.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">What Our Students Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: "John D.", quote: "Chechino Dojo transformed my life. I'm more confident and fit than ever!" },
-              { name: "Sarah L.", quote: "The instructors here are world-class. I've learned so much in just a few months." },
-              { name: "Mike R.", quote: "My kids love their karate classes. It's amazing to see their progress and discipline." }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-100 p-6 rounded-lg shadow">
-                <p className="italic mb-4">{testimonial.quote}</p>
-                <p className="font-semibold">- {testimonial.name}</p>
+      {/* Vision / Mission — asymmetric two-column */}
+      <section className="bg-neutral-950 text-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
+            <div className="bg-neutral-950 p-10 md:p-14">
+              <span className="section-label text-neutral-500">Vision</span>
+              <p className="text-xl md:text-2xl font-light leading-relaxed">Empower the youth and children with good mental health and self-defense skills.</p>
+            </div>
+            <div className="bg-neutral-950 p-10 md:p-14">
+              <span className="section-label text-neutral-500">Mission</span>
+              <p className="text-xl md:text-2xl font-light leading-relaxed">To revive and preserve the true meaning of Kyokushin Karate in Malawi through professional training, partnerships, and tournament participation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs — stacked editorial layout */}
+      <section className="bg-white py-24">
+        <div className="container mx-auto px-6">
+          <span className="section-label">What We Offer</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-16">Programs & Services</h2>
+
+          {/* Kids */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-20 items-center">
+            <div className="lg:col-span-3 relative h-[360px] md:h-[420px]">
+              <Image src="/boy-karate.jpeg" alt="Kids Karate Training" fill style={{ objectFit: "cover" }} />
+            </div>
+            <div className="lg:col-span-2">
+              <h3 className="text-2xl font-bold mb-4">Kids Karate</h3>
+              <p className="text-neutral-600 mb-4 leading-relaxed">We train in-school and out-of-school youth in discipline, self-defense, mental and physical fitness, leadership, and combat skills.</p>
+              <p className="text-neutral-500 text-sm border-l-2 border-red-600 pl-4 italic">Pick-up and drop-off service available at your doorstep.</p>
+            </div>
+          </div>
+
+          {/* Adults + Combat — side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+            <div>
+              <div className="relative h-[280px] mb-6">
+                <Image src="/karate-1.jpg" alt="Adult Karate" fill style={{ objectFit: "cover" }} />
               </div>
+              <h3 className="text-xl font-bold mb-3">Adult Karate</h3>
+              <p className="text-neutral-600 text-sm leading-relaxed">Discipline, self-defense, mental and physical fitness, leadership, weapon use, and combat techniques for all adult skill levels.</p>
+            </div>
+            <div>
+              <div className="relative h-[280px] mb-6">
+                <Image src="/male-k-back.png" alt="Combat Training" fill style={{ objectFit: "cover" }} />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Combat & Security Training</h3>
+              <p className="text-neutral-600 text-sm leading-relaxed">Tailor-made training for security companies and bodyguards — weapon use, hand-to-hand combat, tactical movement, and coordination.</p>
+            </div>
+          </div>
+
+          {/* Fitness + Team — reversed layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+            <div className="lg:col-span-2 order-2 lg:order-1">
+              <h3 className="text-2xl font-bold mb-4">Fitness & Teambuilding</h3>
+              <p className="text-neutral-600 mb-4 leading-relaxed">Weight loss, body shaping, muscle relaxation, athletics, and body coordination. We also organize retreats, conferences, and team-building exercises with games, music, and dance.</p>
+              <p className="text-neutral-600 leading-relaxed">We offer a dedicated self-defense program for women and girls to protect against gender-based violence and build confidence.</p>
+            </div>
+            <div className="lg:col-span-3 relative h-[360px] md:h-[420px] order-1 lg:order-2">
+              <Image src="/kids.jpg" alt="Fitness and Teambuilding" fill style={{ objectFit: "cover" }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Affiliations — simple text strip */}
+      <section className="border-y border-neutral-200 py-14">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-4 text-sm text-neutral-400 font-medium">
+            <span>International Budokai Union — IBU KYODO</span>
+            <span className="hidden md:inline text-neutral-200">|</span>
+            <span>Malawi Full Contact Karate Federation</span>
+            <span className="hidden md:inline text-neutral-200">|</span>
+            <span>Malawi Council of Sports</span>
+            <span className="hidden md:inline text-neutral-200">|</span>
+            <span>Malawi Karate Union</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Clients */}
+      <section className="bg-neutral-50 py-20">
+        <div className="container mx-auto px-6 text-center">
+          <span className="section-label">Trusted By</span>
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
+            {['ABC Academy', 'Bambino High School', 'Bedir International Schools', 'Amref Health Africa', 'Mount Sinai International School'].map((name, i) => (
+              <span key={i} className="border border-neutral-200 px-5 py-2 text-sm text-neutral-500">{name}</span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Photo Gallery */}
-      <section className="bg-gray-200 py-20">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">Dojo Gallery</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {galleryImages.map((src, index) => (
-              <div key={index} className="relative h-48 md:h-64">
-                <Image src={src} alt={`Gallery Image ${index + 1}`} fill style={{objectFit: "cover"}} className="rounded-lg shadow-lg" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Join */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">Why Join Chechino Dojo</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Expert Instructors", description: "Learn from certified black belt instructors with years of experience." },
-              { title: "Modern Facilities", description: "Train in our state-of-the-art dojo equipped with the latest training gear." },
-              { title: "Flexible Schedule", description: "Choose from a variety of class times to fit your busy lifestyle." },
-              { title: "Supportive Community", description: "Join a family of karate enthusiasts who support and motivate each other." }
-            ].map((reason, index) => (
-              <div key={index} className="bg-blue-100 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-2">{reason.title}</h3>
-                <p>{reason.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="bg-gray-500 text-white py-20">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Begin Your Karate Journey?</h2>
-          <p className="text-xl mb-8">Join Chechino Dojo today and transform your life through the power of martial arts.</p>
-          <Button variant="default" size="lg">Sign Up for a Free Trial Class</Button>
+      {/* CTA */}
+      <section className="bg-neutral-950 text-white py-24">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Start Training With Us</h2>
+          <p className="text-neutral-400 max-w-lg mx-auto mb-10">Join Chechino Dojo at Bingu National Stadium, Lilongwe. All ages and skill levels welcome.</p>
+          <Link href="/contact">
+            <Button className="bg-red-600 hover:bg-red-700 text-white px-10 py-3 text-sm font-medium rounded-none">Contact Us</Button>
+          </Link>
         </div>
       </section>
     </>

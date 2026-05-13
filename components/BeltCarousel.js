@@ -2,43 +2,42 @@
 
 import { motion } from 'framer-motion';
 
-const beltColors = ['white', 'orange', 'blue', 'yellow', 'red','green', 'brown', 'black'];
+const beltColors = [
+  { color: '#FFFFFF', name: 'White' },
+  { color: '#FF8C00', name: 'Orange' },
+  { color: '#2563EB', name: 'Blue' },
+  { color: '#EAB308', name: 'Yellow' },
+  { color: '#DC2626', name: 'Red' },
+  { color: '#16A34A', name: 'Green' },
+  { color: '#78350F', name: 'Brown' },
+  { color: '#171717', name: 'Black' },
+];
 
 export default function BeltCarousel() {
+  const belts = [...beltColors, ...beltColors, ...beltColors];
+
   return (
-    <motion.section 
-      className="bg-gray-900 py-10 overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container mx-auto">
-        <motion.div 
-          className="flex space-x-4"
-          animate={{
-            x: [0, -100],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 20,
-              ease: "linear",
-            },
-          }}
-        >
-          {[...beltColors, ...beltColors].map((color, index) => (
-            <motion.div
-              key={`${color}-${index}`}
-              className={`w-20 h-8 border-2 border-gray-100  rounded-full flex-shrink-0`}
-              style={{ backgroundColor: color }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            />
-          ))}
-        </motion.div>
-      </div>
-    </motion.section>
+    <section className="bg-neutral-900 py-6 overflow-hidden border-y border-white/5">
+      <motion.div 
+        className="flex gap-3"
+        animate={{ x: [0, -320] }}
+        transition={{
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 15,
+            ease: "linear",
+          },
+        }}
+      >
+        {belts.map((belt, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-16 h-3 rounded-sm opacity-60"
+            style={{ backgroundColor: belt.color }}
+          />
+        ))}
+      </motion.div>
+    </section>
   );
 }
